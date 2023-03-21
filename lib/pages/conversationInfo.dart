@@ -54,11 +54,11 @@ class _conversationInfoState extends State<conversationInfo> {
                   ),
                 ),
                 Text(
-                  'Rahul Jograna',
+                  'Alice Merryweather',
                   style: TextStyle(fontFamily: 'medium', fontSize: 18),
                 ),
                 Text(
-                  '@rahuljJograna',
+                  '@alice',
                   style: TextStyle(color: Colors.grey),
                 ),
               ],
@@ -111,7 +111,7 @@ class _conversationInfoState extends State<conversationInfo> {
           child: Column(
             children: [
               Text(
-                'Block @rahuljJograna',
+                'Block @alice',
                 style: TextStyle(
                     color: appColor, fontFamily: 'medium', fontSize: 16),
               ),
@@ -119,7 +119,7 @@ class _conversationInfoState extends State<conversationInfo> {
                 height: 20,
               ),
               Text(
-                'Report @rahuljJograna',
+                'Report @alice',
                 style: TextStyle(
                     color: appColor, fontFamily: 'medium', fontSize: 16),
               ),

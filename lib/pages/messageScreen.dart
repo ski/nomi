@@ -38,7 +38,7 @@ class _messageScreenState extends State<messageScreen> {
       iconTheme: IconThemeData(color: Colors.black),
       centerTitle: true,
       title: Text(
-        'Rahul Jograna',
+        'Alice Merryweather',
         style:
             TextStyle(fontFamily: 'medium', fontSize: 16, color: Colors.black),
       ),

@@ -417,7 +417,7 @@ class _tweetState extends State<tweet> {
                                   fontSize: 14),
                             ),
                             TextSpan(
-                              text: ' @hardikrajput and @rahuljjograna',
+                              text: ' @hardikrajput and @alice',
                               style: TextStyle(color: appColor),
                             ),
                           ],

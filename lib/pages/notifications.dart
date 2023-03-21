@@ -223,7 +223,7 @@ class _notificationsState extends State<notifications> {
                                   color: Colors.black, fontFamily: 'medium'),
                             ),
                             TextSpan(
-                              text: ' @rahuljjograna 17/08/2022',
+                              text: ' @alice 17/08/2022',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ],

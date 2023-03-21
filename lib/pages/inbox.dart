@@ -134,7 +134,7 @@ class _inboxState extends State<inbox> {
                                 color: Colors.black, fontFamily: 'medium'),
                           ),
                           TextSpan(
-                            text: ' @rahuljjograna',
+                            text: ' @alice',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],
