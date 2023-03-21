@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         primaryColor: appColor,
         fontFamily: 'regular',
       ),
-      home: welcome(),
+      home: const Welcome(),
       routes: {
         tabs.page_id: (context) => tabs(),
         login.page_id: (context) => login(),
