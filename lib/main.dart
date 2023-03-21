@@ -1,115 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:nomi/helper/style.dart';
+import 'package:nomi/pages/bookmarks.dart';
+import 'package:nomi/pages/contentPreference.dart';
+import 'package:nomi/pages/conversationInfo.dart';
+import 'package:nomi/pages/directMessages.dart';
+import 'package:nomi/pages/exploreSetting.dart';
+import 'package:nomi/pages/forgotpassword.dart';
+import 'package:nomi/pages/friendProfile.dart';
+import 'package:nomi/pages/homeScreen.dart';
+import 'package:nomi/pages/inbox.dart';
+import 'package:nomi/pages/lists.dart';
+import 'package:nomi/pages/login.dart';
+import 'package:nomi/pages/loginPassword.dart';
+import 'package:nomi/pages/messageScreen.dart';
+import 'package:nomi/pages/moments.dart';
+import 'package:nomi/pages/monetization.dart';
+import 'package:nomi/pages/newTweet.dart';
+import 'package:nomi/pages/notifications.dart';
+import 'package:nomi/pages/passChangeSuccess.dart';
+import 'package:nomi/pages/profile.dart';
+import 'package:nomi/pages/register.dart';
+import 'package:nomi/pages/registerTerms.dart';
+import 'package:nomi/pages/resetCode.dart';
+import 'package:nomi/pages/resetMethod.dart';
+import 'package:nomi/pages/resetPassword.dart';
+import 'package:nomi/pages/search.dart';
+import 'package:nomi/pages/settings.dart';
+import 'package:nomi/pages/sigunup.dart';
+import 'package:nomi/pages/spaces.dart';
+import 'package:nomi/pages/tabs.dart';
+import 'package:nomi/pages/topics.dart';
+import 'package:nomi/pages/trending.dart';
+import 'package:nomi/pages/tweet.dart';
+import 'package:nomi/pages/welcome.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Twitter Clone',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        primaryColor: appColor,
+        fontFamily: 'regular',
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      home: welcome(),
+      routes: {
+        tabs.page_id: (context) => tabs(),
+        login.page_id: (context) => login(),
+        loginPassword.page_id: (context) => loginPassword(),
+        forgotPassword.page_id: (context) => forgotPassword(),
+        resetMethod.page_id: (context) => resetMethod(),
+        resetCode.page_id: (context) => resetCode(),
+        resetPassword.page_id: (context) => resetPassword(),
+        passChangeSuccess.page_id: (context) => passChangeSuccess(),
+        register.page_id: (context) => register(),
+        registerTerm.page_id: (context) => registerTerm(),
+        signup.page_id: (context) => signup(),
+        homeScreen.page_id: (context) => homeScreen(),
+        search.page_id: (context) => search(),
+        spaces.page_id: (context) => spaces(),
+        notifications.page_id: (context) => notifications(),
+        inbox.page_id: (context) => inbox(),
+        contentPreference.page_id: (context) => contentPreference(),
+        exploreSetting.page_id: (context) => exploreSetting(),
+        directMessages.page_id: (context) => directMessages(),
+        messageScreen.page_id: (context) => messageScreen(),
+        conversationInfo.page_id: (context) => conversationInfo(),
+        tweet.page_id: (context) => tweet(),
+        friendProfile.page_id: (context) => friendProfile(),
+        profile.page_id: (context) => profile(),
+        lists.page_id: (context) => lists(),
+        topics.page_id: (context) => topics(),
+        bookmarks.page_id: (context) => bookmarks(),
+        moments.page_id: (context) => moments(),
+        monetization.page_id: (context) => monetization(),
+        settings.page_id: (context) => settings(),
+        trending.page_id: (context) => trending(),
+        newTweet.page_id: (context) => newTweet(),
+      },
     );
   }
 }
