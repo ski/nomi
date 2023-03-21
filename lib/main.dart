@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Twitter Clone',
+      title: 'nomi.re',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
