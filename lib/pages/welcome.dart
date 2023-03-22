@@ -71,6 +71,7 @@ class _WelcomeState extends State<Welcome> {
                       'www.myurl.com', '/api/v1/test/', queryParameters);
                   var response = await http.get(uri);
                   print(response.toString());
+                  print(response.statusCode);
                   // var response = await http.get(uri, headers: {
                   //   HttpHeaders.authorizationHeader: 'Token $token',
                   //   HttpHeaders.contentTypeHeader: 'application/json',
