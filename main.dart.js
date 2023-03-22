@@ -77844,7 +77844,7 @@ A.akt.prototype={
 $0(){var s=0,r=A.ac(t.H),q
 var $async$$0=A.ad(function(a,b){if(a===1)return A.a9(b,r)
 while(true)switch(s){case 0:s=2
-return A.ap(A.aJF(A.aH3("https","www.myurl.com","/api/v1/test/",B.Iu)),$async$$0)
+return A.ap(A.aJF(A.aH3("https","deedum.io","/oauth/authorize",B.Iu)),$async$$0)
 case 2:q=b
 A.eb("Instance of '"+A.Ki(q)+"'")
 A.eb(q.b)
