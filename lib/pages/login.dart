@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:nomi/pages/forgotpassword.dart';
 import 'package:nomi/pages/loginPassword.dart';
 
-class login extends StatefulWidget {
-  login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
-  static const String page_id = "Login";
+  static const String pageId = "Login";
 
   @override
-  State<login> createState() => _loginState();
+  State<Login> createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,14 +19,14 @@ class _loginState extends State<login> {
       appBar: _buildAppbar(),
       body: _buildBody(),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
             border: Border(top: BorderSide(color: Colors.grey.shade300))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey.shade300),
                 borderRadius: BorderRadius.circular(30),
@@ -38,11 +38,11 @@ class _loginState extends State<login> {
                       MaterialPageRoute(
                           builder: (context) => forgotPassword()));
                 },
-                child: Text('Forgot password?'),
+                child: const Text('Forgot password?'),
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(30),
@@ -52,7 +52,7 @@ class _loginState extends State<login> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => loginPassword()));
                 },
-                child: Text(
+                child: const Text(
                   'Next',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -68,50 +68,46 @@ class _loginState extends State<login> {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      iconTheme: IconThemeData(color: Colors.black),
+      iconTheme: const IconThemeData(color: Colors.black),
       centerTitle: true,
       automaticallyImplyLeading: false,
       leading: IconButton(
         onPressed: () {
           Navigator.pop(context);
         },
-        icon: Icon(Icons.close),
+        icon: const Icon(Icons.close),
       ),
-      title: Container(
-        child: Image.asset(
-          'assets/images/twitter.png',
-          height: 30,
-          width: 30,
-          fit: BoxFit.cover,
-        ),
+      title: Image.asset(
+        'assets/images/twitter.png',
+        height: 30,
+        width: 30,
+        fit: BoxFit.cover,
       ),
     );
   }
 
   Widget _buildBody() {
     return Padding(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'To get started, first enter your phone, email, or @username',
-                  style: TextStyle(fontFamily: 'medium', fontSize: 20),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      hintText: 'Phone, email, or username'),
-                ),
-              ],
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                'To get started, first enter your phone, email, or @username',
+                style: TextStyle(fontFamily: 'medium', fontSize: 20),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    border: UnderlineInputBorder(),
+                    hintText: 'Phone, email, or username'),
+              ),
+            ],
           )
         ],
       ),

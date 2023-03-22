@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       home: const Welcome(),
       routes: {
         tabs.page_id: (context) => tabs(),
-        login.page_id: (context) => login(),
+        Login.pageId: (context) => Login(),
         loginPassword.page_id: (context) => loginPassword(),
         forgotPassword.page_id: (context) => forgotPassword(),
         resetMethod.page_id: (context) => resetMethod(),

@@ -1,8 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nomi/helper/style.dart';
 import 'package:nomi/pages/login.dart';
-import 'package:nomi/pages/register.dart';
+import 'package:http/http.dart' as http;
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -18,28 +17,6 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
-      // bottomNavigationBar: Padding(
-      //   padding: const EdgeInsets.all(20),
-      //   child: RichText(
-      //     text: TextSpan(
-      //       children: [
-      //         const TextSpan(
-      //           text: 'Have an account already? ',
-      //           style: TextStyle(color: Colors.black54, fontFamily: 'regular'),
-      //         ),
-      //         TextSpan(
-      //           text: ' Login',
-      //           style: const TextStyle(color: appColor),
-      //           recognizer: TapGestureRecognizer()
-      //             ..onTap = () {
-      //               Navigator.push(context,
-      //                   MaterialPageRoute(builder: (context) => login()));
-      //             },
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
     );
   }
 
@@ -63,51 +40,9 @@ class _WelcomeState extends State<Welcome> {
           ),
           Column(
             children: [
-              // Container(
-              //   padding: const EdgeInsets.symmetric(vertical: 12),
-              //   decoration: BoxDecoration(
-              //     border: Border.all(color: Colors.grey.shade300),
-              //     borderRadius: BorderRadius.circular(30),
-              //   ),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       Image.asset(
-              //         'assets/images/google.png',
-              //         height: 25,
-              //         width: 25,
-              //         fit: BoxFit.cover,
-              //       ),
-              //       const SizedBox(
-              //         width: 10,
-              //       ),
-              //       const Text(
-              //         'Continue with Google',
-              //         style: TextStyle(fontFamily: 'semi-bold'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // const SizedBox(
-              //   height: 10,
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Expanded(
-                  //   flex: 5,
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       border: Border(
-                  //         bottom: BorderSide(color: Colors.grey.shade300),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  // const Expanded(
-                  //   flex: 2,
-                  //   child: Center(child: Text('Or')),
-                  // ),
                   Expanded(
                     flex: 5,
                     child: Container(
@@ -124,9 +59,24 @@ class _WelcomeState extends State<Welcome> {
                 height: 10,
               ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => login()));
+                onPressed: () async {
+                  const queryParameters = {
+                    'redirect_uri': '/',
+                    'response_type': 'code',
+                    'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
+                    'scope': 'add',
+                  };
+
+                  var uri = Uri.https(
+                      'www.myurl.com', '/api/v1/test/', queryParameters);
+                  var response = await http.get(uri);
+                  print(response.toString());
+                  // var response = await http.get(uri, headers: {
+                  //   HttpHeaders.authorizationHeader: 'Token $token',
+                  //   HttpHeaders.contentTypeHeader: 'application/json',
+                  // });
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => const Login()));
                 },
                 style: appButton(),
                 child: const Text(
@@ -137,21 +87,6 @@ class _WelcomeState extends State<Welcome> {
               const SizedBox(
                 height: 20,
               ),
-              // RichText(
-              //   text: const TextSpan(
-              //     children: [
-              //       TextSpan(
-              //         text: 'By signing up,you agree to our ',
-              //         style: TextStyle(
-              //             color: Colors.black54, fontFamily: 'regular'),
-              //       ),
-              //       TextSpan(
-              //         text: ' Terms,Privacy Policy and Cookie Use.',
-              //         style: TextStyle(color: appColor),
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           )
         ],
