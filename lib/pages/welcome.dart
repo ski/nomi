@@ -78,7 +78,7 @@ class _WelcomeState extends State<Welcome> {
                   final url = Uri.https('deedum.io', '/oauth/authorize', {
                     'response_type': 'code',
                     'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
-                    'redirect_uri': '/',
+                    'redirect_uri': 'nomi.re/#/',
                     'scope': 'add',
                   });
 
