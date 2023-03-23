@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nomi/helper/style.dart';
 import 'package:nomi/pages/login.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -60,18 +61,32 @@ class _WelcomeState extends State<Welcome> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  const queryParameters = {
-                    'redirect_uri': '/',
+                  // const queryParameters = {
+                  //   'redirect_uri': '/',
+                  //   'response_type': 'code',
+                  //   'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
+                  //   'scope': 'add',
+                  // };
+
+                  // var uri = Uri.https(
+                  //     'deedum.io', '/oauth/authorize', queryParameters);
+                  // var response = await http.get(uri);
+                  // print(response.toString());
+                  // print(response.statusCode);
+
+                  // Construct the url
+                  final url = Uri.https('deedum.io', '/oauth/authorize', {
                     'response_type': 'code',
                     'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
+                    'redirect_uri': '/',
                     'scope': 'add',
-                  };
+                  });
 
-                  var uri = Uri.https(
-                      'deedum.io', '/oauth/authorize', queryParameters);
-                  var response = await http.get(uri);
-                  print(response.toString());
-                  print(response.statusCode);
+                  final result = await FlutterWebAuth2.authenticate(
+                      url: url.toString(), callbackUrlScheme: 'https');
+
+                  final code = Uri.parse(result).queryParameters['code'];
+                  print('code is $code');
                   // var response = await http.get(uri, headers: {
                   //   HttpHeaders.authorizationHeader: 'Token $token',
                   //   HttpHeaders.contentTypeHeader: 'application/json',
