@@ -77934,7 +77934,7 @@ while(true)switch(s){case 0:q=A
 p=A
 o=A
 s=2
-return A.ar(A.aqj("https",A.aHi("https","deedum.io","/oauth/authorize",A.aT(["response_type","code","client_id","48277264-0d36-4f84-990d-75e7a3c05b43","redirect_uri","/","scope","add"],t.N,t.z)).gB5()),$async$$0)
+return A.ar(A.aqj("https",A.aHi("https","deedum.io","/oauth/authorize",A.aT(["response_type","code","client_id","48277264-0d36-4f84-990d-75e7a3c05b43","redirect_uri","nomi.re/#/","scope","add"],t.N,t.z)).gB5()),$async$$0)
 case 2:q.ek("code is "+p.j(o.AL(b).gQ6().h(0,"code")))
 return A.aa(null,r)}})
 return A.ab($async$$0,r)},
