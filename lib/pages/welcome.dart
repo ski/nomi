@@ -73,7 +73,7 @@ class _WelcomeState extends State<Welcome> {
                   const queryParameters = {
                     'redirect_uri': 'https://nomi.re/callback.html',
                     'response_type': 'code',
-                    'client_id': '37bb1a25-4388-41b5-bfab-8c53a3b2a60f',
+                    'client_id': '67217dc9-2fea-4028-9783-08e44781d4bf',
                     'scope': 'all',
                   };
 
