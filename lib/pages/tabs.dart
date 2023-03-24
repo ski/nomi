@@ -65,7 +65,7 @@ class _tabsState extends State<tabs> {
             homeScreen(),
             search(),
             spaces(),
-            notifications(),
+            Notifications(),
             inbox(),
           ],
         ),

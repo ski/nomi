@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nomi/helper/style.dart';
-import 'package:nomi/pages/login.dart';
+import 'dart:html' as html;
 import 'package:http/http.dart' as http;
-import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+
+class ScreenArguments {
+  final String c;
+
+  ScreenArguments({this.c = ''});
+}
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -16,6 +21,10 @@ class Welcome extends StatefulWidget {
 class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
+    // final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+
+    // print(args);
+
     return Scaffold(
       body: _buildBody(),
     );
@@ -61,32 +70,32 @@ class _WelcomeState extends State<Welcome> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  // const queryParameters = {
-                  //   'redirect_uri': '/',
-                  //   'response_type': 'code',
-                  //   'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
-                  //   'scope': 'add',
-                  // };
+                  const queryParameters = {
+                    'redirect_uri': 'https://nomi.re/callback.html',
+                    'response_type': 'code',
+                    'client_id': '37bb1a25-4388-41b5-bfab-8c53a3b2a60f',
+                    'scope': 'all',
+                  };
 
-                  // var uri = Uri.https(
-                  //     'deedum.io', '/oauth/authorize', queryParameters);
-                  // var response = await http.get(uri);
-                  // print(response.toString());
-                  // print(response.statusCode);
+                  var uri = Uri.https(
+                      'deedum.io', '/oauth/authorize', queryParameters);
+                  // final response = await http.get(uri);
+                  // html.window.console.log(response.body);
+                  html.window.location.href = uri.toString();
 
                   // Construct the url
-                  final url = Uri.https('deedum.io', '/oauth/authorize', {
-                    'response_type': 'code',
-                    'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
-                    'redirect_uri': 'nomi.re/#/',
-                    'scope': 'add',
-                  });
+                  // final url = Uri.https('deedum.io', '/oauth/authorize', {
+                  //   'response_type': 'code',
+                  //   'client_id': '48277264-0d36-4f84-990d-75e7a3c05b43',
+                  //   'redirect_uri': 'nomi.re/#/',
+                  //   'scope': 'add',
+                  // });
 
-                  final result = await FlutterWebAuth2.authenticate(
-                      url: url.toString(), callbackUrlScheme: 'https');
+                  // final result = await FlutterWebAuth2.authenticate(
+                  //     url: url.toString(), callbackUrlScheme: 'https');
 
-                  final code = Uri.parse(result).queryParameters['code'];
-                  print('code is $code');
+                  // final code = Uri.parse(result).queryParameters['code'];
+                  // print('code is $code');
                   // var response = await http.get(uri, headers: {
                   //   HttpHeaders.authorizationHeader: 'Token $token',
                   //   HttpHeaders.contentTypeHeader: 'application/json',

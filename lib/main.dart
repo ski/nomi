@@ -33,6 +33,8 @@ import 'package:nomi/pages/topics.dart';
 import 'package:nomi/pages/trending.dart';
 import 'package:nomi/pages/tweet.dart';
 import 'package:nomi/pages/welcome.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 void main() {
   runApp(const MyApp());
@@ -51,10 +53,11 @@ class MyApp extends StatelessWidget {
         primaryColor: appColor,
         fontFamily: 'regular',
       ),
-      home: const Welcome(),
+      //home: const Welcome(),
       routes: {
+        "/": (context) => const Welcome(),
         tabs.page_id: (context) => tabs(),
-        Login.pageId: (context) => Login(),
+        Login.pageId: (context) => const Login(),
         loginPassword.page_id: (context) => loginPassword(),
         forgotPassword.page_id: (context) => forgotPassword(),
         resetMethod.page_id: (context) => resetMethod(),
@@ -67,7 +70,7 @@ class MyApp extends StatelessWidget {
         homeScreen.page_id: (context) => homeScreen(),
         search.page_id: (context) => search(),
         spaces.page_id: (context) => spaces(),
-        notifications.page_id: (context) => notifications(),
+        Notifications.pageId: (context) => const Notifications(),
         inbox.page_id: (context) => inbox(),
         contentPreference.page_id: (context) => contentPreference(),
         exploreSetting.page_id: (context) => exploreSetting(),
@@ -85,6 +88,15 @@ class MyApp extends StatelessWidget {
         settings.page_id: (context) => settings(),
         trending.page_id: (context) => trending(),
         newTweet.page_id: (context) => newTweet(),
+      },
+      onGenerateRoute: (routeSettings) {
+        if (routeSettings.name!.contains('/callback?code')) {
+          var uri = Uri.tryParse(routeSettings.name!);
+          print(uri?.queryParameters['code']);
+
+          html.window.open('/simple.html', '_self');
+        }
+        return MaterialPageRoute(builder: (_) => const Login());
       },
     );
   }
